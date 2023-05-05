@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:8000/api/orders/" });
+const API = axios.create({ baseURL: "https://bookhub-server.vercel.app/api/orders/" });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
