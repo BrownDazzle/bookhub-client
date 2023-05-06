@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useRoutes,
-} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 //import Profile from './pages/Profile';
 import Auth from './pages/Auth';
@@ -63,9 +58,13 @@ const App = () => {
     <>
       <Navbar />
       <Cart />
-      <Router>
-        <AppRoutes shippingAddress={shippingAddress} setShippingAdress={setShippingAdress} />
-      </Router>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/auth" component={Auth} />
+          <Route exact path="/checkout" component={CheckoutPage} />
+        </Switch>
+      </BrowserRouter>
       <Footer footerAPI={footerAPI} />
     </>
   );
